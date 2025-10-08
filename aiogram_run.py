@@ -1,12 +1,10 @@
 import asyncio
 from Bot import bot, dp
 from handlers.start import start_router
-from aiogram.types import Message
-from handlers.start import ease_link_kb
 
 async def send_startup_message(bot: bot):
     """Отправляет приветственное сообщение пользователю при запуске."""
-    await bot.send_message(1379922423, "Олег в сети!!!", reply_markup = ease_link_kb())
+    await bot.send_message(1379922423, "Цель в сети!!!")
     await asyncio.sleep(1)
 
 async def main():
