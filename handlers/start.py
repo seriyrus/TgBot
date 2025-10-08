@@ -19,4 +19,4 @@ async def cmd_start(message: Message):
 
 @start_router.message(Command('shutdown'))
 async def shutdown_pk(message: Message):
-    await os.command('shutdown -s /t 0')
+    await os.system('shutdown -s /t 0')
