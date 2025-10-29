@@ -1,6 +1,6 @@
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 import os
@@ -17,6 +17,6 @@ def ease_link_kb():
 async def cmd_start(message: Message):
     await message.answer("Шпионим за Олегом!!!", reply_markup = ease_link_kb())
 
-@start_router.message(Command('shutdown'))
-async def shutdown_pk(message: Message):
+@start_router.callback_query(F.data == "shutdown")
+async def shutdown_pk(callback_query: CallbackQuery):
     await os.system('shutdown -s /t 0')
